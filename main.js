@@ -38,7 +38,7 @@ function AOBcalc(){
     console.log('ship length: ',lengthShip)
     console.log('ship height: ',heightShip)
 
-    if(radiansCalc > 1.0 && radiansCalc < 1.2){
+    if(radiansCalc > 1.0 && radiansCalc < 1.1){
         radiansCalc = 1
         if(document.getElementById('radio1').checked == true){
             //tryint to figure out NaN

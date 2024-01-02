@@ -48,7 +48,7 @@ function AOBcalc(){
             console.log('second div: ', lengthShip/heightShip)
             console.log('third div: ',(lengthRadian/(heightRadian/16))/(lengthShip/heightShip))
     
-            var radians = Math.asin((lengthRadian/(heightRadian/16))/(lengthShip/heightShip));
+            var radians = Math.asin(radiansCalc);
             var degrees = radians * (180/Math.PI)
     
             //calc tests

@@ -37,14 +37,15 @@ function AOBcalc(){
     console.log('measured radian height: ',heightRadian)
     console.log('ship length: ',lengthShip)
     console.log('ship height: ',heightShip)
+    
 
-    if(radiansCalc > 1.0 && radiansCalc < 1.15){
-        radiansCalc = 1
+    if(radiansCalc < 1.0){
         if(document.getElementById('radio1').checked == true){
             //tryint to figure out NaN
             console.log('first div: ', lengthRadian/(heightRadian/16))
             console.log('second div: ', lengthShip/heightShip)
             console.log('third div: ',(lengthRadian/(heightRadian/16))/(lengthShip/heightShip))
+            
     
             var radians = Math.asin(radiansCalc);
             var degrees = radians * (180/Math.PI)

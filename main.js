@@ -39,7 +39,7 @@ function AOBcalc(){
     console.log('ship height: ',heightShip)
 
     if(radiansCalc > 1.0 && radiansCalc < 1.2){
-        radiansCalc = 0.999999999999999
+        radiansCalc = 1
         if(document.getElementById('radio1').checked == true){
             //tryint to figure out NaN
             console.log('first div: ', lengthRadian/(heightRadian/16))

@@ -10,7 +10,7 @@ function finalSpeed() {
     var targetTime = parseFloat(document.getElementById("targetTime").value); // T
     var targetSpeed;
     var d = targetLength / targetTime;
-
+    
     //Conditions, check HTML radios
 
     if (document.getElementById('radio1').checked == true) {
@@ -38,10 +38,8 @@ function AOBcalc(){
     console.log('ship length: ',lengthShip)
     console.log('ship height: ',heightShip)
 
-    if (radiansCalc >= 1.0){
-        alert("Please check if data is correct or ship ID is correct.")
-    }
-    else{
+    if(radiansCalc > 1.0 && radiansCalc < 1.2){
+        radiansCalc = 0.999999999999999
         if(document.getElementById('radio1').checked == true){
             //tryint to figure out NaN
             console.log('first div: ', lengthRadian/(heightRadian/16))
@@ -72,10 +70,15 @@ function AOBcalc(){
         else{
             alert("Please check one of the options and fill in the data!")
         }
-    }   
+    }
+    else{
+        console.log('first div: ', lengthRadian/(heightRadian/16))
+        console.log('second div: ', lengthShip/heightShip)
+        console.log('third div: ',(lengthRadian/(heightRadian/16))/(lengthShip/heightShip))
+        alert("Please check if data is correct or ship ID is correct.")
+    }
 
     tgtAOB = Math.abs(degrees)
     document.getElementById("tgtAOB").innerHTML = 'Target AOB seems to be: ' + tgtAOB.toFixed(2) + '° left or right'
-    
     
 }

@@ -31,31 +31,48 @@ function AOBcalc(){
     var heightRadian = parseFloat(document.getElementById("radiansHeight").value)
     var lengthShip = parseFloat(document.getElementById("shipLength").value)
     var heightShip = parseFloat(document.getElementById("shipHeight").value)
+    var radiansCalc = (lengthRadian/(heightRadian/16))/(lengthShip/heightShip)
     //tests
     console.log('measured radians length: ', lengthRadian)
     console.log('measured radian height: ',heightRadian)
     console.log('ship length: ',lengthShip)
     console.log('ship height: ',heightShip)
 
-
-    if(document.getElementById('radio1').checked == true){
-        var radians = Math.asin((lengthRadian/(heightRadian/16))/(lengthShip/heightShip));
-        var degrees = radians * (180/Math.PI)
-
-        //calc tests
-
-        console.log('radians calculated: ',radians)
-        console.log('AOB: ',degrees)
+    if (radiansCalc >= 1.0){
+        alert("Please check if data is correct or ship ID is correct.")
     }
     else{
-        var radians = Math.asin((lengthRadian/(heightRadian/16)/(lengthShip/heightShip)))
-        var degrees = 180 - (radians*(180/Math.PI))
-
-        //calc tests
-
-        console.log('radians calculated: ',radians)
-        console.log('AOB: ',degrees)
-    }
+        if(document.getElementById('radio1').checked == true){
+            //tryint to figure out NaN
+            console.log('first div: ', lengthRadian/(heightRadian/16))
+            console.log('second div: ', lengthShip/heightShip)
+            console.log('third div: ',(lengthRadian/(heightRadian/16))/(lengthShip/heightShip))
+    
+            var radians = Math.asin((lengthRadian/(heightRadian/16))/(lengthShip/heightShip));
+            var degrees = radians * (180/Math.PI)
+    
+            //calc tests
+            console.log('radians calculated: ',radians)
+            console.log('AOB: ',degrees)
+        }
+        else if(document.getElementById('radio2').checked == true){
+            //tryint to figure out NaN
+            console.log('first div: ', lengthRadian/(heightRadian/16))
+            console.log('second div: ', lengthShip/heightShip)
+            console.log('third div: ',(lengthRadian/(heightRadian/16))/(lengthShip/heightShip))
+    
+            var radians = Math.asin(radiansCalc)
+            var degrees = 180 - (radians*(180/Math.PI))
+    
+            //calc tests
+            console.log('radians calculated: ',radians)
+            console.log('AOB: ',degrees)
+            
+        }
+        else{
+            alert("Please check one of the options and fill in the data!")
+        }
+    }   
 
     tgtAOB = Math.abs(degrees)
     document.getElementById("tgtAOB").innerHTML = 'Target AOB seems to be: ' + tgtAOB.toFixed(2) + '° left or right'
